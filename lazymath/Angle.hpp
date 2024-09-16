@@ -48,6 +48,10 @@ namespace lazy {
 			while (fac > 2)fac -= 2;
 			while (fac < 0)fac += 2;
 		}
+		//Absolute value
+		Angle abs() const {
+			return { ::abs(fac) };
+		}
 
 		Angle operator-() const {
 			return { fac + 1 };
