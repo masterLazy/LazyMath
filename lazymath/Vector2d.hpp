@@ -23,7 +23,6 @@ namespace lazy {
 			return x * v.y - y * v.x;
 		}
 
-		//Invert
 		void operator-() {
 			x = -x, y = -y;
 		}
