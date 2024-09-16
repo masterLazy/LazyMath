@@ -11,7 +11,7 @@ namespace lazy {
 		Float x, y;
 
 		Vector2d() :x(0), y(0) {}
-		Vector2d(Float _x, Float _y) :x(_x), y(_y) {}
+		Vector2d(Float x, Float y) :x(x), y(y) {}
 		Vector2d(const Vector2d& from_point, const Vector2d& to_point)
 			:x(to_point.x - from_point.x), y(to_point.y - from_point.y) {}
 
@@ -53,6 +53,14 @@ namespace lazy {
 		Vector2d operator-=(const Vector2d& v) {
 			x -= v.x, y -= v.y;
 			return *this;
+		}
+
+		//Comparation
+		bool operator==(const Vector2d& v) const {
+			return equal(x, v.x) && equal(y, v.y);
+		}
+		bool operator!=(const Vector2d& v) const {
+			return !(*this == v);
 		}
 
 		//ostream

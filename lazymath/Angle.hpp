@@ -29,7 +29,7 @@ namespace lazy {
 	class Angle {
 	private:
 		Float fac; //This angle = fac * PI
-		Angle(Float _fac) :fac(_fac) {}
+		Angle(Float fac) :fac(fac) {}
 	public:
 
 		Angle() :fac(0) {}
@@ -43,7 +43,7 @@ namespace lazy {
 			return fac * PI;
 		}
 
-		//Simplify the angle into [0, 2*PI]
+		//Simplify the angle into [0, 2 * pi]
 		void simplify() {
 			while (fac > 2)fac -= 2;
 			while (fac < 0)fac += 2;
@@ -88,10 +88,10 @@ namespace lazy {
 
 		//Comparation
 		bool operator==(const Angle& angle) const {
-			return fac == angle.fac;
+			return equal(fac, angle.fac);
 		}
 		bool operator!=(const Angle& angle) const {
-			return fac != angle.fac;
+			return !(*this == angle);
 		}
 		bool operator>(const Angle& angle) const {
 			return fac > angle.fac;
@@ -100,10 +100,10 @@ namespace lazy {
 			return fac < angle.fac;
 		}
 		bool operator>=(const Angle& angle) const {
-			return fac >= angle.fac;
+			return !(*this < angle);
 		}
 		bool operator<=(const Angle& angle) const {
-			return fac <= angle.fac;
+			return !(*this > angle);
 		}
 
 		//ostream
