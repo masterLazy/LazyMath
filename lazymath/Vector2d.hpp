@@ -5,6 +5,7 @@
 *****************************************************************************/
 
 namespace lazy {
+	//Vector in 2D space
 	class Vector2d {
 	public:
 		Float x, y;
@@ -14,13 +15,25 @@ namespace lazy {
 		Vector2d(const Vector2d& from_point, const Vector2d& to_point)
 			:x(to_point.x - from_point.x), y(to_point.y - from_point.y) {}
 
+		//Norm of the vector
+		Float norm() const {
+			return sqrt(x * x + y * y);
+		}
 		//Dot product
 		Float dot(const Vector2d& v) const {
 			return x * v.x + y * v.y;
 		}
-		//Mod of cross product
+		//Norm of cross product
 		Float cross(const Vector2d& v) const {
 			return x * v.y - y * v.x;
+		}
+		//Angle with positive-x axis
+		Angle angle() const {
+			return atan2(y, x);
+		}
+		//Angle between two vectors (this vector -> v)
+		Angle angle_with(const Vector2d& v) const {
+			return v.angle() - angle();
 		}
 
 		void operator-() {
@@ -43,9 +56,10 @@ namespace lazy {
 		}
 
 		//ostream
-		friend std::ostream& operator<<(std::ostream& os, const Vector2d& pt) {
-			return os << "[" << pt.x << ", " << pt.y << "]";
+		friend std::ostream& operator<<(std::ostream& os, const Vector2d& vector) {
+			return os << "[" << vector.x << ", " << vector.y << "]";
 		}
 	};
+	//Point in 2D space
 	typedef Vector2d Point2d;
 }

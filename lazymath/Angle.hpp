@@ -10,12 +10,20 @@ namespace lazy {
 	public:
 		Float d;
 		Deg(Float degree) :d(degree) {}
+		//ostream
+		friend std::ostream& operator<<(std::ostream& os, const Deg& deg) {
+			return os << deg.d << " deg";
+		}
 	};
 
 	class Rad {
 	public:
 		Float r;
 		Rad(Float radian) :r(radian) {}
+		//ostream
+		friend std::ostream& operator<<(std::ostream& os, const Rad& rad) {
+			return os << rad.r << " rad";
+		}
 	};
 
 	class Angle {
@@ -24,7 +32,7 @@ namespace lazy {
 		Angle(Float _fac) :fac(_fac) {}
 	public:
 
-		Angle() {}
+		Angle() :fac(0) {}
 		Angle(Deg deg) :fac(deg.d / 180) {}
 		Angle(Rad rad) :fac(rad.r / PI) {}
 
@@ -97,5 +105,32 @@ namespace lazy {
 		bool operator<=(const Angle& angle) const {
 			return fac <= angle.fac;
 		}
+
+		//ostream
+		friend std::ostream& operator<<(std::ostream& os, const Angle& angle) {
+			return os << angle.deg() << " deg";
+		}
 	};
+
+	inline Float sin(Angle angle) {
+		return ::sin(angle.rad());
+	}
+	inline Float cos(Angle angle) {
+		return ::cos(angle.rad());
+	}
+	inline Float tan(Angle angle) {
+		return ::tan(angle.rad());
+	}
+	inline Angle asin(Float f) {
+		return Rad(::asin(f));
+	}
+	inline Angle acos(Float f) {
+		return Rad(::acos(f));
+	}
+	inline Angle atan(Float f) {
+		return Rad(::atan(f));
+	}
+	inline Angle atan2(Float x, Float y) {
+		return Rad(::atan2(x, y));
+	}
 }
