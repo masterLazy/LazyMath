@@ -88,7 +88,7 @@ Angle Angle::operator/=(const Float f) {
 }
 
 bool Angle::operator==(const Angle& angle) const {
-	return equal(fac, angle.fac);
+	return fac.equals(angle.fac);
 }
 bool Angle::operator!=(const Angle& angle) const {
 	return !(*this == angle);

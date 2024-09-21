@@ -37,7 +37,7 @@ namespace lazy {
 		bool operator!=(const Vector2d& v) const;
 
 		//ostream
-		friend std::ostream& operator<<(std::ostream& os, const Vector2d& vector);
+		friend std::ostream& operator<<(std::ostream&, const Vector2d&);
 	};
 	//Point in 2D space
 	typedef Vector2d Point2d;

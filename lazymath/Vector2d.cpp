@@ -49,7 +49,7 @@ Vector2d Vector2d::operator-=(const Vector2d& v) {
 }
 
 bool Vector2d::operator==(const Vector2d& v) const {
-	return equal(x, v.x) && equal(y, v.y);
+	return x.equals(v.x) && y.equals(v.y);
 }
 bool Vector2d::operator!=(const Vector2d& v) const {
 	return !(*this == v);

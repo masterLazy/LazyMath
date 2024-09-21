@@ -62,7 +62,7 @@ namespace lazy {
 		bool operator<=(const Angle& angle) const;
 
 		//ostream
-		friend std::ostream& operator<<(std::ostream& os, const Angle& angle);
+		friend std::ostream& operator<<(std::ostream&, const Angle&);
 	};
 
 	inline Float sin(Angle angle) {

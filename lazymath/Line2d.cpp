@@ -14,7 +14,7 @@ Line2d::Line2d(Point2d p1, Point2d p2) :p1(p1), p2(p2) {}
 
 Line2d::Line2d(Float A, Float B, Float C) {
 	//Point A
-	if (abs(B) > EPSILON) {
+	if (!B.equals(0)) {
 		p1.x = 0;
 		p2.y = -C / B;
 	}
