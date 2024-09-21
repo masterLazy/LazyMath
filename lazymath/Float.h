@@ -22,9 +22,7 @@ namespace lazy {
 		Float abs() const;
 		Float pow(Float) const;
 
-		// 
 		bool equals(const Float&) const;
-
 		bool is_zero() const;
 
 		Float operator+=(Float);
