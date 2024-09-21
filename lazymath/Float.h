@@ -29,7 +29,5 @@ namespace lazy {
 		Float operator-=(Float);
 		Float operator*=(Float);
 		Float operator/=(Float);
-
-		friend std::ostream& operator<<(std::ostream&, const Float&);
 	};
 }

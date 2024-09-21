@@ -10,7 +10,7 @@ using namespace lazy;
 
 Deg::Deg(Float degree) :d(degree) {}
 
-/*Deg - public friend*/
+/*Deg - friend*/
 
 std::ostream& operator<<(std::ostream& os, const Deg& deg) {
 	return os << deg.d << " deg";
@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& os, const Deg& deg) {
 
 Rad::Rad(Float radian) :r(radian) {}
 
-/*Rad - public friend*/
+/*Rad - friend*/
 
 std::ostream& operator<<(std::ostream& os, const Rad& rad) {
 	return os << rad.r << " rad";
@@ -106,7 +106,7 @@ bool Angle::operator<=(const Angle& angle) const {
 	return !(*this > angle);
 }
 
-/*Angle - public friend*/
+/*Angle - friend*/
 
 Angle operator*(const Float f, const Angle& angle) {
 	return angle * f;

@@ -5,63 +5,62 @@
 *****************************************************************************/
 
 namespace lazy {
-	//Auxiliary classes
+	// Auxiliary classes
 	class Deg {
 	public:
 		Float d;
-		Deg(Float degree);
-		//ostream
+		Deg(Float);
+		// ostream
 		friend std::ostream& operator<<(std::ostream& os, const Deg& deg);
 	};
-
 	class Rad {
 	public:
 		Float r;
-		Rad(Float radian);
-		//ostream
+		Rad(Float);
+		// ostream
 		friend std::ostream& operator<<(std::ostream& os, const Rad& rad);
 	};
 
 	class Angle {
 	private:
-		Float fac; //This angle = fac * PI
+		Float fac; // This angle = fac * PI
 		Angle(Float fac);
 	public:
 
 		Angle();
-		Angle(Deg deg);
-		Angle(Rad rad);
+		Angle(Deg);
+		Angle(Rad);
 
 		Float deg() const;
 		Float rad() const;
 
-		//Simplify the angle into [0, 2 * pi]
+		// Simplify the angle into [0, 2 * pi]
 		void simplify();
-		//Absolute value
+		// Absolute value
 		Angle abs() const;
 
 		Angle operator-() const;
-		Angle operator+(const Angle& angle) const;
-		Angle operator-(const Angle& angle) const;
-		Float operator/(const Angle& angle) const;
-		Angle operator*(const Float f) const;
-		Angle operator/(const Float f) const;
+		Angle operator+(const Angle&) const;
+		Angle operator-(const Angle&) const;
+		Float operator/(const Angle&) const;
+		Angle operator*(const Float) const;
+		Angle operator/(const Float) const;
 		friend Angle operator*(const Float f, const Angle& angle);
 
-		Angle operator+=(const Angle& angle);
-		Angle operator-=(const Angle& angle);
-		Angle operator*=(const Float f);
-		Angle operator/=(const Float f);
+		Angle operator+=(const Angle&);
+		Angle operator-=(const Angle&);
+		Angle operator*=(const Float);
+		Angle operator/=(const Float);
 
-		//Comparation
-		bool operator==(const Angle& angle) const;
-		bool operator!=(const Angle& angle) const;
-		bool operator>(const Angle& angle) const;
-		bool operator<(const Angle& angle) const;
-		bool operator>=(const Angle& angle) const;
-		bool operator<=(const Angle& angle) const;
+		// Comparation
+		bool operator==(const Angle&) const;
+		bool operator!=(const Angle&) const;
+		bool operator>(const Angle&) const;
+		bool operator<(const Angle&) const;
+		bool operator>=(const Angle&) const;
+		bool operator<=(const Angle&) const;
 
-		//ostream
+		// ostream
 		friend std::ostream& operator<<(std::ostream&, const Angle&);
 	};
 

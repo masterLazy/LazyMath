@@ -10,8 +10,9 @@ using namespace lazy;
 
 Vector2d::Vector2d() :x(0), y(0) {}
 Vector2d::Vector2d(Float x, Float y) :x(x), y(y) {}
-Vector2d::Vector2d(const Vector2d& from_point, const Vector2d& to_point)
-	:x(to_point.x - from_point.x), y(to_point.y - from_point.y) {}
+Vector2d::Vector2d(const Vector2d& p1, const Vector2d& p2) {
+	*this = p2 - p1;
+}
 
 Float Vector2d::norm() const {
 	return sqrt(x * x + y * y);
@@ -33,10 +34,16 @@ void Vector2d::operator-() {
 	x = -x, y = -y;
 }
 Vector2d Vector2d::operator+(const Vector2d& v) const {
-	return Vector2d(x + v.x, y + v.y);
+	return { x + v.x, y + v.y };
 }
 Vector2d Vector2d::operator-(const Vector2d& v) const {
-	return Vector2d(x - v.x, y - v.y);
+	return { x - v.x, y - v.y };
+}
+Vector2d Vector2d::operator*(Float f) const {
+	return { x * f, y * f };
+}
+Vector2d Vector2d::operator/(Float f) const {
+	return { x / f, y / f };
 }
 
 Vector2d Vector2d::operator+=(const Vector2d& v) {
@@ -59,4 +66,8 @@ bool Vector2d::operator!=(const Vector2d& v) const {
 
 std::ostream& operator<<(std::ostream& os, const Vector2d& vector) {
 	return os << "[" << vector.x << ", " << vector.y << "]";
+}
+
+Vector2d operator*(Float f, const Vector2d& v) {
+	return v * f;
 }

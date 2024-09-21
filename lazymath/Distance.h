@@ -13,8 +13,7 @@ namespace lazy {
 
 	//Distance between point and line
 	inline Float distance(const Point2d& p, const Line2d& l) {
-		return Vector2d(l.p1, l.p2).cross(Vector2d(p, l.p1)) /
-			Vector2d(l.p2, l.p1).norm();
+		return (p - l.p1).cross((l.p2 - l.p1)).abs() / distance(l.p1, l.p2);
 	}
 	//Distance between point and line
 	inline Float distance(const Line2d& l, const Point2d& p) {

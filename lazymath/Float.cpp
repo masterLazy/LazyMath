@@ -44,9 +44,3 @@ bool lazy::Float::equals(const Float& f) const {
 bool lazy::Float::is_zero() const {
 	return abs() > EPSILON;
 }
-
-/*Float - public friend*/
-
-std::ostream& lazy::operator<<(std::ostream& os, const Float& f) {
-	return os << f.value;
-}
